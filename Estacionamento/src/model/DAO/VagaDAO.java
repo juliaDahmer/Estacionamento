@@ -1,4 +1,4 @@
-package modeo.DAO;
+package model.DAO;
 
 import model.bean.Vaga;
 import connection.ConnectionFactory;
