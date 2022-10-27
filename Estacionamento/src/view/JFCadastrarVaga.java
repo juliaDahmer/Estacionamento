@@ -70,6 +70,11 @@ public class JFCadastrarVaga extends javax.swing.JFrame {
         jRBParalela.setText("Paralela");
 
         jBtnCancelar.setText("Cancelar");
+        jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnCancelarActionPerformed(evt);
+            }
+        });
 
         jBtnLimpar.setText("Limpar");
 
@@ -80,9 +85,14 @@ public class JFCadastrarVaga extends javax.swing.JFrame {
             }
         });
 
-        jTFNumero.setText("jTextField1");
+        jTFNumero.setText("número");
+        jTFNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFNumeroActionPerformed(evt);
+            }
+        });
 
-        jTFRua.setText("jTextField1");
+        jTFRua.setText("rua");
         jTFRua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFRuaActionPerformed(evt);
@@ -93,10 +103,17 @@ public class JFCadastrarVaga extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jBtnLimpar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnCancelar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnSalvar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRBObliqua)
                             .addComponent(jRBParalela)
@@ -104,20 +121,10 @@ public class JFCadastrarVaga extends javax.swing.JFrame {
                             .addComponent(nome)
                             .addComponent(jLabel3)
                             .addComponent(tipoVaga))
-                        .addContainerGap(380, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTFRua, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFNumero))
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBtnLimpar)
-                .addGap(18, 18, 18)
-                .addComponent(jBtnSalvar)
-                .addGap(18, 18, 18)
-                .addComponent(jBtnCancelar)
-                .addGap(51, 51, 51))
+                        .addGap(0, 368, Short.MAX_VALUE))
+                    .addComponent(jTFRua, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTFNumero))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,6 +176,14 @@ public class JFCadastrarVaga extends javax.swing.JFrame {
     private void jTFRuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFRuaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFRuaActionPerformed
+
+    private void jTFNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNumeroActionPerformed
+
+    private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
