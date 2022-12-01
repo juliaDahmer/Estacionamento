@@ -93,6 +93,11 @@ public class JFListarVagas extends javax.swing.JFrame {
         });
 
         jBTnEditar.setText("Editar Vaga");
+        jBTnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTnEditarActionPerformed(evt);
+            }
+        });
 
         jBTnExcluir.setText("Excluir Vaga");
         jBTnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +167,17 @@ public class JFListarVagas extends javax.swing.JFrame {
         }
         readJTable();
     }//GEN-LAST:event_jBTnExcluirActionPerformed
+
+    private void jBTnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTnEditarActionPerformed
+        if(jTVaga.getSelectedRow() != -1){
+      int vagaSelecionada = (int) jTVaga.getValueAt(jTVaga.getSelectedRow(), 0);
+      JFAtualizarVaga av = new JFAtualizarVaga (vagaSelecionada);
+      av.setVisible(true);
+      }else {
+      JOptionPane.showMessageDialog(null, "Selecione uma vaga!", "Erro",JOptionPane.ERROR_MESSAGE);
+      }
+      readJTable();
+    }//GEN-LAST:event_jBTnEditarActionPerformed
 public void readJTable(){
     DefaultTableModel modelo = (DefaultTableModel) jTVaga.getModel();
     modelo.setNumRows(0);

@@ -51,7 +51,7 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jRBParalela = new javax.swing.JRadioButton();
         jRBObliqua = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        jBtnSalvar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -95,10 +95,10 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Salvar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBtnSalvar.setText("Salvar");
+        jBtnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBtnSalvarActionPerformed(evt);
             }
         });
 
@@ -154,7 +154,7 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(jBtnSalvar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -190,7 +190,7 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
                 .addComponent(jRBParalela)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jBtnSalvar)
                     .addComponent(jButton3)
                     .addComponent(jButton2))
                 .addGap(36, 36, 36))
@@ -215,9 +215,19 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRBObliquaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jBtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalvarActionPerformed
+        Vaga v = new Vaga ();
+    VagaDAO vdao = new VagaDAO();
+    v.setIdVaga(Integer.parseInt(lblIdVaga.getText()));
+    v.setNumero (Integer.parseInt(jTFNumero.getText()));
+    v.setRua(jTFRua.getText());
+    if(jRBObliqua.isSelected()){
+        v.setObliqua(true);
+    }else if (jRBParalela.isSelected()){
+    v.setObliqua(false);
+    }
+    vdao.update(v);
+    }//GEN-LAST:event_jBtnSalvarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -263,6 +273,8 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JFAtualizarVaga().setVisible(true);
+                JFAtualizarVaga frame = new JFAtualizarVaga(idVaga);
+                frame.setVisible(true);
             }
         });
     }
@@ -270,7 +282,7 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBtnSalvar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;

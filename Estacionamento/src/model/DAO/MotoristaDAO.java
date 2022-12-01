@@ -6,17 +6,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import model.bean.Motorista;
 
 
 public class MotoristaDAO {
-    
-    public void create (Motorista m){
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        
-        try{
+    public void create(Motorista m){
+    Connection con = ConnectionFactory.getConnection();
+    PreparedStatement stmt = null;
+    try{
             stmt = con.prepareStatement("INSERT INTO motorista (idMotorista,nome,genero,RG,CPF,fone,email,senha)");
-            stmt.setInt(1, m.getidMotorista());
+            stmt.setInt(1, m.getIdMotorista());
             stmt.setString(2, m.getNome());
             stmt.setBoolean(3, m.getGenero());
             stmt.setInt(4, m.getCPF());
@@ -26,11 +25,12 @@ public class MotoristaDAO {
             
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cadastro de motorista feito com sucesso!");
-        }catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "Erro so cadastrar: " + e);
-        }finally{
-        ConnectionFactory.closeConnection(con, stmt);
+        
+    }catch (SQLException e){
+         JOptionPane.showMessageDialog (null, "Erro ao salvar:" + e);
+    }finally {
+         ConnectionFactory.closeConnection(con, stmt);
     }
-    }
-    
+    }  
+
 }
